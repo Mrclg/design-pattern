@@ -22,7 +22,7 @@ public class OrderHandlerStrategyService {
     private Map<OrderHandlerStrategyType, IOrderHandlerStrategy> orderStrategyMap;
 
     @Autowired
-    public void setorderStrategyMap(List<IOrderHandlerStrategy> orderStrategies) {
+    public void setOrderStrategyMap(List<IOrderHandlerStrategy> orderStrategies) {
         // 注入各种类型的处理类
         orderStrategyMap = orderStrategies.stream().collect(
                 Collectors.toMap(orderStrategy -> Objects.requireNonNull(AnnotationUtils.findAnnotation(orderStrategy.getClass(), OrderHandlerStrategyType.class)),
